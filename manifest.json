@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+	"name": "Kindle Highlights",
+	"version": "0.0.1",
+	"background": {
+	  "scripts": ["js/background.js"]
+	},
+	"content_scripts": [{
+	  "matches": ["*://read.amazon.co.jp/*", "*://login.live.com/*"],
+    "js": ["js/jquery-2.1.1.min.js", "js/content.js"],
+    "run_at" : "document_end"
+	}],
+	"browser_action": {
+	  "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' https://js.live.net; object-src 'self'",
+  "permissions": ["history","tabs","storage", "webRequest", "notifications", "<all_urls>"]
+}
